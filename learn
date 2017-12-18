@@ -1,0 +1,183 @@
+
+
+
+
+stady::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://tengine.taobao.org/book/module_development.html 
+http://coder520.com
+java调优：http://www.cnblogs.com/ityouknow/category/437541.html
+mstsc
+
+老马::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/swiftma/p/5631311.html
+http://www.ityouknow.com/
+
+centos:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.centos.org/download/
+
+
+:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+cn:qmaruirlw maruirlw
+
+docker::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/CloudMan6/p/6693772.html
+20 17(Dockerfile编写)
+https://hub.docker.com/explore/
+https://docs.docker.com/
+http://www.phpkoo.com/archives/305
+升级内核:http://blog.csdn.net/jeffleo/article/details/70904150
+http://www.cnblogs.com/coolworld/p/5486640.html
+http://blog.csdn.net/zhang__jiayu/article/details/42611469
+https://docs.docker.com/engine/reference/commandline/network_rm/
+
+
+
+
+Kafka  dubbo
+
+
+
+数据库锁::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/zhouqianhua/archive/2011/04/15/2017049.html
+
+JVM调优::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/ityouknow/p/5603287.html
+org.eclipse.core.runtime
+com.genuitec.eclipse.ast
+远程：mstsc
+jdk:jvisualvm jconsole
+
+
+java 发送mail::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/weidiao/p/5228672.html
+
+ssm: ----------------------
+http://www.cnblogs.com/Joanna-Yan/category/690587.html
+
+easyui:---------------------------
+http://www.jeasyui.net/tutorial/147.html
+$('#admin_operlog-endTime').datebox({
+		editable:false,
+	}); table不可编辑
+
+	
+js:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+调试js://# sourceURL=test.js
+debugger;
+
+
+
+windows::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+查看端口netstat -aon | findstr ":80"
+
+mybatis::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+&lt;       < 
+&gt;       >  
+&lt;&gt;   <>
+&amp;      & 
+&apos;      '
+&quot;      "
+
+
+mysql::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/clsn/p/8038964.html
+explan
+union all
+CONCAT(str,str)拼接
+curdate()：当前时间
+EXPLAIN:查询分析
+date_format(curdate(),'%Y-%m-')
+group by和order by同时使用是没有效果的,可以使用group_concat和groub by替代。group_concat内可以实现字段排序。
+centos安装mysql:---http://www.centoscn.com/mysql/2014/1211/4290.html
+查看当前进程:SHOW PROCESSLIST
+show global variables like 'port';  
+mysqldump -uroot -proot --databases gamecenter2 --skip-add-locks --tables momessages --where="dateAdded>'2017-10-22'"  >D:/db1.sql
+如果使用的MySQL，可以使用"select @@tx_isolation"来查看默认的事务隔离级别
+linux ::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+查询启动服务:chkconfig --list   systemctl list-unit-files  systemctl stop firewalld  
+unzip -o  deploy-hwsdk.war -d ./hwdemon/ROOT/
+ps -ef|grep tomcat |awk '{print $2}'
+java 环境变量
+JAVA_HOME=/usr/tomcat/jdk1.8.0_141
+CLASSPATH=$JAVA_HOME/lib/
+PATH=$PATH:$JAVA_HOME/bin
+export PATH JAVA_HOME CLASSPATH
+>/dev/null 回收站
+$2>1
+brctl show
+看 ip forwarding：# sysctl net.ipv4.ip_forward
+ iptables：# iptables-save
+http://man.linuxde.net/
+ 
+ 
+ http://www.cnblogs.com/ityouknow/category/914493.html
+redis::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/edisonfeng/p/3571870.html
+http://www.cnblogs.com/stephen-liu74/category/354125.html
+文档http://www.jianshu.com/p/7bf5dc61ca06
+关闭:returnResource(ShardedJedis)
+https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache
+mycat::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/kaye0110/category/779427.html
+http://www.pps.tv/w_19rtg7i46d.html
+
+http://songwie.com/teachs?start=0
+https://github.com/MyCATApache/Mycat-Server/wiki/1-Mycat%E5%AF%BC%E5%BC%95
+https://github.com/MyCATApache/Mycat-Server/wiki
+
+
+nginx:-:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://www.cnblogs.com/hunttown/p/5759959.html
+http://www.cnblogs.com/mrlinfeng/p/6146866.html
+263
+
+
+
+maven::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://maven.aliyun.com/nexus
+阿里maven
+<mirror>
+        <id>nexus-aliyun</id>
+        <mirrorOf>*</mirrorOf>
+        <name>Nexus aliyun</name>
+        <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </mirror>
+			<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.2.4.Final</version>
+		</dependency>
+
+java：--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//当天12点半时间
+Calendar cal = new GregorianCalendar();
+cal.set(Calendar.HOUR_OF_DAY, 12);
+cal.set(Calendar.MINUTE, 30);
+cal.set(Calendar.SECOND, 0);
+cal.set(Calendar.MILLISECOND, 0);
+Date date = cal.getTime();
+Multipart
+一般spring容器启动时，通过PropertyPlaceholderConfigurer类读取jdbc.properties文件里的数据库配置信息。通过这个原理，我们把加密后的数据库配置信息放到jdbc.properties文件里，然后自定义一个继承PropertyPlaceholderConfigurer的类重写processProperties方法，实现解密，把解密后的信息又放回去。
+
+SPRINGMVC http://www.cnblogs.com/5ishare/p/7703513.html
+
+mongodb-------------------------------------
+windows安装https://jingyan.baidu.com/article/d5c4b52bef7268da560dc5f8.html
+AIP文档https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#
+
+/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.genuitec.eclipse.ast.deploy.core.prefs
+
+
+正则表达式：
+http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html
+查询号码归属地API：http://opendata.baidu.com/api.php?query=15184496827&resource_id=6004&t=&ie=utf8&oe=gbk&format=json
+
+
+springcolud:
+spring cloud中通过配置文件自定义Ribbon负载均衡策略:
+http://www.cnblogs.com/ilinuxer/p/6582784.html
+http://www.cnblogs.com/ityouknow/category/994104.html
+
+
+springboot:
+https://yq.aliyun.com/articles/182720?utm_content=m_29522
