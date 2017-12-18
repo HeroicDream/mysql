@@ -1,0 +1,92 @@
+docker命令总结:
+登录：docker login -u {username}
+登出: docker logout
+查看镜像: docker images
+删除镜像: docker rmi {镜像id}
+下载镜像: docker pull {镜像名称}
+容器保存为镜像:docker commit {Docker 为我们的容器随机分配的名字} {新镜像名称}
+查找镜像无需打开浏览器：docker search {镜像名称}
+查看容器docker ps -a 或 docker container ls -a 
+docker build -t {新镜像名称} -f {Dockerfile文件} .(//build context) 
+docker run -i -t <IMAGE_ID> /bin/bash：-i：标准输入给容器  --restart=always:容器可能会因某种错误而停止运行。对于服务类容器，我们通常希望在这种情况下容器能够自动重启 --name：分配容器名称   -t：分配一个虚拟终端    /bin/bash：执行bash脚本
+docker exec -it 14652138b806 /bash
+① -it 以交互模式打开 pseudo-TTY，执行 bash，其结果就是打开了一个 bash 终端。
+-d 是后台启动容器。
+
+-p 将容器的 5000 端口映射到 Host 的 5000 端口。5000 是 registry 服务端口。端口映射我们会在容器网络章节详细讨论。
+
+-v 将容器 /var/lib/registry 目录映射到 Host 的 /myregistry，用于存放镜像数据。-v 的使用我们会在容器存储章节详细讨论。
+
+-d：以守护进程方式运行（后台）
+-P：默认匹配docker容器的5000端口号到宿主机的49153 to 65535端口
+-p <HOT_PORT>:<CONTAINER_PORT>：指定端口号
+-m 或 --memory：设置内存的使用限额，例如 100M, 2G。
+
+--memory-swap：设置 内存+swap 的使用限额
+- -name： 指定容器的名称
+- -rm：退出时删除容器
+
+
+
+
+
+docker stop <CONTAINER_ID>：停止container
+docker start <CONTAINER_ID>：重新启动container
+docker ps - Lists containers.
+-l：显示最后启动的容器
+-a：同时显示停止的容器，默认只显示启动状态
+
+
+docker logs <CONTAINER_ID>  : 输出容器日志
+-f：实时输出
+docker cp <CONTAINER_ID>:path hostpath：复制容器内的文件到宿主机目录上
+docker rm <CONTAINER_ID>：删除container
+docker rm `docker ps -a -q`：删除所有容器
+docker rm -v $(docker ps -aq -f status=exited)
+docker kill `docker ps -q`
+docker rmi `docker images -q -a`
+docker wait <CONTAINER_ID>：阻塞对容器的其他调用方法，直到容器停止后退出
+
+docker top <CONTAINER_ID>：查看容器中运行的进程
+docker diff <CONTAINER_ID>：查看容器中的变化
+docker inspect <CONTAINER_ID>：查看容器详细信息（输出为Json）
+-f：查找特定信息，如docker inspect -f '{{ .NetworkSettings.IPAddress }}'
+      docker commit -m "comment" -a "author" <CONTAINER_ID>  ouruser/imagename:tag
+
+     
+
+登录仓库
+docker login -u heroicdream
+重命名镜像
+docker tag  http [username]/xxx:tag
+镜像上传到 Docker Hub
+ docker push [username]/xxx:tag 
+ 
+ 
+ docker attach <CONTAINER_ID> 连接到启动的容器
+ 
+  docker exec -it <CONTAINER> <COMMAND>（//bash）：在容器里执行命令，并输出结果、
+  brctl show
+Docker 安装时会自动在 host 上创建三个网络，我们可用 docker network ls 命令查看：
+none 网络就是什么都没有的网络。挂在这个网络下的容器除了 lo，没有其他任何网卡。容器创建时，可以通过 --network=none 指定使用 none 网络。
+ host 网络的容器共享 Docker host 的网络栈，容器的网络配置与 host 完全一样。可以通过 --network=host 指定使用 host 网络。
+ docker network inspect bridge 看一下 bridge 网络的配置信息
+ docker network create --driver bridge my_net --subnet 172.56.0.0/16 --gateway 172.56.0.1
+ docker run -it --network=my_net  --ip=172.56.0.89  busybox
+ docker network connect
+ 两个容器要能通信，必须要有属于同一个网络的网卡满足这个条件后，容器就可以通过 IP 交互了。具体做法是在容器创建时通过 --network 指定相应的网络，或者通过 docker network connect 将现有容器加入到指定网络
+  --network=container:web1 指定 jointed 容器为 web1
+-p 每一个映射的端口，host 都会启动一个 docker-proxy 进程来处理访问容器的流量：
+
+docker run  -d -p 80:80  -v /home/a/test/:/usr/local/apache2/htdocs:ro httpd(ro :read-only只读)
+docker managed volume 与 bind mount 在使用上的最大区别是不需要指定 mount 源，指明 mount point 就行了:
+docker run  -d -p 80:80  -v /usr/local/apache2/htdocs httpd
+容器信息:docker inspect <container> 除了通过 docker inspect 查看 volume，我们也可以用 docker volume 命令
+docker cp 可以在容器和 host 之间拷贝数据：docker cp ./index.html 2f574196:/usr/local/apache2/htdocs
+容器间共享shuju:
+1.-v 挂在同一个volumes
+2.其他容器可以通过 --volumes-from 使用 vc_data 这个 volume container：docker run -it --volumes-from vc_data httpd
+docker volume rm $(docker volume ls -q)
+
+要执行远程 docker 命令我们需要通过 -H 指定目标主机的连接字符串，比如：docker -H tcp://192.168.56.105:2376 ps
+	  
