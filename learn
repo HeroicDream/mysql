@@ -161,6 +161,9 @@ Multipart
 
 SPRINGMVC http://www.cnblogs.com/5ishare/p/7703513.html
 
+
+MultipartRequest multiRequest = (MultipartRequest) request;
+MultipartFile sourceFile = multiRequest.getFile("resources");
 mongodb-------------------------------------
 windows安装https://jingyan.baidu.com/article/d5c4b52bef7268da560dc5f8.html
 AIP文档https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#
