@@ -108,7 +108,8 @@ brctl show
 看 ip forwarding：# sysctl net.ipv4.ip_forward
  iptables：# iptables-save
 http://man.linuxde.net/
- 
+ top:
+ https://www.cnblogs.com/sparkdev/p/8176778.html
  
  http://www.cnblogs.com/ityouknow/category/914493.html
 redis::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
