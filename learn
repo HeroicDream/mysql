@@ -81,6 +81,7 @@ mybatis::-----------------------------------------------------------------------
 
 mysql::--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 http://www.cnblogs.com/clsn/p/8038964.html
+dump命令:https://www.cnblogs.com/chenmh/p/5300370.html
 explan
 union all
 CONCAT(str,str)拼接
@@ -197,3 +198,8 @@ http://kafka.apache.org/10/javadoc/index.html?org/apache/kafka/clients/producer/
 http://orchome.com/5
 
 tomcat编码问题URIEncoding="UTF-8"
+Wireshark
+vue:
+
+
+http://element.eleme.io/#/zh-CN/component/installation
