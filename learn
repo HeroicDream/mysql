@@ -203,3 +203,10 @@ vue:
 
 
 http://element.eleme.io/#/zh-CN/component/installation
+
+
+mysql导入导出
+https://www.cnblogs.com/chenmh/p/5300370.html
+
+
+mysqldump -uroot -proot --skip-add-locks --single-transaction --no-create-info  --databases gamecenter2  --tables provinces >e:/provinces.sql
